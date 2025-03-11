@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.example.Entity.EventEntity
 import com.example.Entity.EventViewModel
@@ -28,6 +29,8 @@ class DetailFinished : AppCompatActivity() {
     private lateinit var beginTime: String
     private lateinit var endTime: String
     private lateinit var mediaCover: String
+    private lateinit var quota: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFinishedDetailBinding.inflate(layoutInflater)
@@ -46,12 +49,27 @@ class DetailFinished : AppCompatActivity() {
         mediaCover = intent.getStringExtra("EVENT_MEDIA_COVER")?: ""
 
 
+
+        // Periksa status favorit dari database
+        eventViewModel.getEventByName(eventName).observe(this, Observer { event ->
+            if (event != null) {
+                isFavorite = event.isFavorite
+                setBookmarkIcon()  // Memperbarui ikon berdasarkan status favorit
+            }
+        })
+
         // Ambil status favorit dari Intent
         isFavorite = intent.getBooleanExtra("EVENT_IS_FAVORITE", false)
+
 
         // Menampilkan data di UI
         binding.eventDescription.text = Html.fromHtml(description, Html.FROM_HTML_MODE_LEGACY)
         binding.tvName.text = eventName
+        binding.tvCategory.text = category
+        binding.eventOwner.text = ownerName
+        binding.tvCityLokasi.text = city
+        binding.tvDateTime.text = "$beginTime - $endTime"
+        binding.tvSummary.text = summary
         Glide.with(this).load(eventImage).into(binding.eventImage)
 
         // Set ikon bookmark berdasarkan status favorit
@@ -92,9 +110,9 @@ class DetailFinished : AppCompatActivity() {
     private fun setBookmarkIcon() {
         if (isFavorite) {
             // Menggunakan ContextCompat untuk mengambil drawable secara aman
-            binding.ivBookmark.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_love_merah))
+            binding.ivBookmark.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_love_nyatu))
         } else {
-            binding.ivBookmark.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_love_biasa))
+            binding.ivBookmark.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_love_patah))
         }
     }
 }

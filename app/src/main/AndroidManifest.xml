@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyDicoding"
         tools:targetApi="31">
-
+        <activity
+            android:name="com.example.fragmentBottom.favorit.DetailFavorite"
+            android:exported="false" />
         <activity
             android:name="com.example.fragmentBottom.finished.DetailFinished"
             android:exported="false" />

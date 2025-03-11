@@ -18,6 +18,9 @@ interface EventDao {
     @Query("SELECT * FROM favorite_events")
     fun getAllFavorites(): LiveData<List<EventEntity>>  // Menggunakan LiveData
 
+    @Query("SELECT * FROM favorite_events WHERE eventName = :eventName LIMIT 1")
+    fun getEventByName(eventName: String): LiveData<EventEntity?>
+
     @Query("DELETE FROM favorite_events WHERE eventName = :eventName")
     suspend fun deleteFavorite(eventName: String)
 }

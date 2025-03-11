@@ -6,10 +6,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.mydicoding.R
 import com.example.mydicoding.databinding.ItemEventBinding
 
-class EventAdapter : ListAdapter<EventEntity, EventAdapter.EventViewHolder>(EventDiffCallback()) {
+class EventAdapter(private val onItemClick: (EventEntity)-> Unit) :
+    ListAdapter<EventEntity, EventAdapter.EventViewHolder>(EventDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
         // Menambahkan view binding untuk item layout
@@ -25,10 +25,15 @@ class EventAdapter : ListAdapter<EventEntity, EventAdapter.EventViewHolder>(Even
     inner class EventViewHolder(private val binding: ItemEventBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(event: EventEntity) {
             // Mengikat data ke tampilan menggunakan binding
-            binding.tvOwnerName.text = event.eventName
+            binding.eventTitle.text = event.eventName
+            binding.tvSummary.text = event.summary
             Glide.with(binding.imgLogoEvent.context)
                 .load(event.imageLogo) // eventImage adalah URL gambar yang disimpan dalam EventEntity
                 .into(binding.imgLogoEvent) // eventImage adalah ImageView tempat gambar akan ditampilkan
+
+            itemView.setOnClickListener {
+                onItemClick(event)
+            }
         }
     }
 

@@ -26,11 +26,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textStyle="bold"
-            android:text="DevCoach 187: Kotlin 101 | Kuasai Bahasa Kotlin dalam 1 Jam!"
+            android:text="DevCoach 187"
             android:textAppearance="?attr/textAppearanceSubtitle1" />
 
-
-
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
         <TextView
             android:id="@+id/tvSummary"
             android:layout_width="match_parent"
@@ -38,13 +41,6 @@
             android:maxLines="3"
             android:ellipsize="end"
             android:textAppearance="?attr/textAppearanceBody2"/>
-
-
-        <TextView
-            android:id="@+id/tvCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,7 +54,8 @@
                 android:text="Dicoding Event"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textStyle="bold"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:layout_marginTop="8dp"/>
 
             <TextView
                 android:id="@+id/tvCity"

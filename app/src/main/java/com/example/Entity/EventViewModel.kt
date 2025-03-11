@@ -24,4 +24,14 @@ class EventViewModel(application: Application) : AndroidViewModel(application) {
             eventDao.deleteFavorite(eventName)
         }
     }
+
+//    // Mengambil seluruh event favorit
+//    fun getAllEvents(): LiveData<List<EventEntity>> {
+//        return allEvents
+//    }
+
+    // Mengambil satu event berdasarkan eventName (untuk memeriksa status favorit saat pertama kali)
+    fun getEventByName(eventName: String): LiveData<EventEntity?> {
+        return eventDao.getEventByName(eventName)
+    }
 }

@@ -64,7 +64,7 @@
         android:id="@+id/tvCityLokasi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lokasi"
+        android:text="Lokasicity"
         android:textSize="14sp"
         android:textColor="#6c757d"
         android:layout_marginBottom="8dp"/>
@@ -73,7 +73,7 @@
         android:id="@+id/eventOwner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pemilik:"
+        android:text="owner"
         android:textSize="14sp"
         android:textColor="#6c757d"
         android:layout_marginBottom="8dp"/>

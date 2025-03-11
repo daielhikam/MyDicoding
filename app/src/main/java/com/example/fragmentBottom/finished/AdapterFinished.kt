@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.data.response.ListItemsFinished
+import com.example.fragmentBottom.upcomming.DetailUpcoming
 import com.example.mydicoding.R
 
 class AdapterFinished(private val onBookmarkClick: (ListItemsFinished) -> Unit) :
@@ -44,16 +45,16 @@ class AdapterFinished(private val onBookmarkClick: (ListItemsFinished) -> Unit) 
         holder.tvEventSummary.text = event.summary
         holder.tvDateTime.text = "${event.beginTime} - ${event.endTime}"
 
+
         Glide.with(holder.itemView.context)
             .load(event.mediaCover)
             .into(holder.eventImage)
 
         // Handle item click untuk membuka Detail
+        // Menambahkan klik listener untuk berpindah ke DetailUpcomingActivity
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, DetailFinished::class.java).apply {
-                // Kirim semua data ke DetailFinished
-                putExtra("EVENT_ID", event.id)  // Pastikan ID dikirim
                 putExtra("EVENT_DESC", event.description)
                 putExtra("EVENT_QUOTA", event.quota)
                 putExtra("EVENT_LINK", event.link)
@@ -66,7 +67,6 @@ class AdapterFinished(private val onBookmarkClick: (ListItemsFinished) -> Unit) 
                 putExtra("EVENT_BEGIN_TIME", event.beginTime)
                 putExtra("EVENT_END_TIME", event.endTime)
                 putExtra("EVENT_IMAGE", event.mediaCover)
-                putExtra("EVENT_IS_FAVORITE", event.isFavorite)  // Kirim status favorit ke detail
             }
             context.startActivity(intent)
         }

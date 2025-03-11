@@ -17,5 +17,5 @@ data class EventEntity(
     val endTime: String,
     val imageLogo: String,
     val isFavorite: Boolean,
-    val isFinished: Boolean
+    val isFinished: Boolean,
 )

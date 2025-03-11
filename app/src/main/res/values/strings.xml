@@ -3,4 +3,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="save_bookmark">Save Bookmark?</string>
+    <string name="quota_format">Kuota: %d</string>
 </resources>

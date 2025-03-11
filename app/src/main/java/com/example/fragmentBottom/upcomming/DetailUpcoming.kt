@@ -49,7 +49,6 @@ class DetailUpcoming : AppCompatActivity() {
 
         //membuka link
         binding.btnEventLink.setOnClickListener {
-            // TODO: Buka link di browser
              val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
              startActivity(browserIntent)
         }

@@ -24,8 +24,8 @@
             android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/iv_bookmark"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/save_bookmark"
@@ -79,18 +79,15 @@
             android:id="@+id/tvCityLokasi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lokasi"
+            android:text="CityLokasi"
             android:textSize="14sp"
-            android:textColor="#6c757d"
             android:layout_marginBottom="8dp"/>
 
         <TextView
             android:id="@+id/eventOwner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pemilik:"
             android:textSize="14sp"
-            android:textColor="#6c757d"
             android:layout_marginBottom="8dp"/>
 
 
@@ -99,14 +96,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Kuota"
             android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tvRegistrants"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrants"
             android:textSize="14sp"/>
 
 
