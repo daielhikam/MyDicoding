@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:id="@+id/main"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.example.fragmentBottom.upcomming.DetailUpcoming">
+
+    <ImageView
+        android:id="@+id/eventImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="Event Image"/>
+
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Event Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Summary"
+        android:textSize="14sp"
+        android:textColor="#6c757d"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/eventDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvDateTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tanggal"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvCityLokasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lokasi"
+        android:textSize="14sp"
+        android:textColor="#6c757d"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/eventOwner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pemilik:"
+        android:textSize="14sp"
+        android:textColor="#6c757d"
+        android:layout_marginBottom="8dp"/>
+
+
+    <TextView
+        android:id="@+id/tvQuota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Kuota"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvRegistrants"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrants"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnEventLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Daftar Gratis"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>
+    </ScrollView>

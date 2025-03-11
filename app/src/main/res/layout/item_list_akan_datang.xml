@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+
+        <!-- Gambar Cover Event -->
+        <ImageView
+            android:id="@+id/eventImage"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop" />
+
+        <!-- Nama Event -->
+        <TextView
+            android:id="@+id/eventTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:text="DevCoach 187: Kotlin 101 | Kuasai Bahasa Kotlin dalam 1 Jam!"
+            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+
+
+        <!-- Ringkasan Event -->
+        <TextView
+            android:id="@+id/tvSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textAppearance="?attr/textAppearanceBody2"/>
+
+<!--        &lt;!&ndash; Ringkasan Event &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/tvDescription"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:maxLines="3"-->
+<!--            android:ellipsize="end"-->
+<!--            android:textAppearance="?attr/textAppearanceBody2"-->
+<!--            android:textColor="@android:color/darker_gray" />-->
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Informasi Lain (Nama Pemilik dan Lokasi) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Nama Pemilik -->
+            <TextView
+                android:id="@+id/tvOwnerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dicoding Event"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textStyle="bold"
+                android:layout_weight="1" />
+
+            <!-- Lokasi -->
+            <TextView
+                android:id="@+id/tvCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Online"
+                android:textAppearance="?attr/textAppearanceBody2"
+                />
+        </LinearLayout>
+
+        <!-- Waktu Event -->
+        <TextView
+            android:id="@+id/tvDateTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:layout_marginTop="4dp" />
+
+<!--        &lt;!&ndash; Tindakan Daftar (Tombol untuk Link) &ndash;&gt;-->
+<!--        <Button-->
+<!--            android:id="@+id/btnEventLink"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Daftar Gratis"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_gravity="center_horizontal"/>-->
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
