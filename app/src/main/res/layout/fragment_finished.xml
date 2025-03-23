@@ -7,9 +7,12 @@
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:queryHint="Cari event..."
+        android:iconifiedByDefault="false"
+        android:background="@drawable/bottom_nav_background"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"/>
 
@@ -20,7 +23,7 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"

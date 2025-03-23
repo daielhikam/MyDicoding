@@ -4,7 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiConfig {
-    private const val BASE_URL = "https://event-api.dicoding.dev/" // Ganti dengan base URL API-mu
+    private const val BASE_URL = "https://event-api.dicoding.dev/"
 
     val getApiService: ApiService by lazy {
         val retrofit = Retrofit.Builder()

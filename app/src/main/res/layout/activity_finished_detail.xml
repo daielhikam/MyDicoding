@@ -79,15 +79,18 @@
             android:id="@+id/tvCityLokasi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="CityLokasi"
+            android:text="Lokasicity"
             android:textSize="14sp"
+            android:textColor="#6c757d"
             android:layout_marginBottom="8dp"/>
 
         <TextView
             android:id="@+id/eventOwner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="owner"
             android:textSize="14sp"
+            android:textColor="#6c757d"
             android:layout_marginBottom="8dp"/>
 
 
@@ -96,13 +99,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:text="Kuota"
             android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tvRegistrants"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"/>
+            android:text="Registrants"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"/>
+
 
 
     </LinearLayout>

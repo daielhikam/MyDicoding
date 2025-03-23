@@ -16,12 +16,10 @@ class ViewModelFinished : ViewModel() {
     private val _error = MutableLiveData<String>()
     val error: LiveData<String> get() = _error
 
-    // MutableLiveData untuk menyimpan status favorit
     private val _favoriteEvents = MutableLiveData<Map<Int, Boolean>>()
     val favoriteEvents: LiveData<Map<Int, Boolean>> get() = _favoriteEvents
 
     init {
-        // Menginisialisasi status favorit dengan data kosong atau status default
         _favoriteEvents.value = emptyMap()
     }
 
@@ -33,7 +31,6 @@ class ViewModelFinished : ViewModel() {
                 if (response.isSuccessful) {
                     val events = response.body()?.listEvents ?: emptyList()
                     _events.postValue(events)
-                    // Menyimpan status favorit berdasarkan data event
                     val favoriteStatus = events.associate { it.id to it.isFavorite }
                     _favoriteEvents.postValue(favoriteStatus)
                 } else {
@@ -45,13 +42,10 @@ class ViewModelFinished : ViewModel() {
         }
     }
 
-    // Fungsi untuk toggle status favorit
     fun toggleFavorite(event: ListItemsFinished) {
         viewModelScope.launch {
-            // Dapatkan status favorit yang ada
             val currentFavorites = _favoriteEvents.value?.toMutableMap() ?: mutableMapOf()
             val currentStatus = currentFavorites[event.id] ?: false
-            // Toggle status favorit
             currentFavorites[event.id] = !currentStatus
             _favoriteEvents.postValue(currentFavorites)
 

@@ -3,40 +3,56 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/gradient_background">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Favorite Event"
-        android:textSize="30sp"
+        android:text="🎉 Upcoming Events"
+        android:textSize="26sp"
         android:textStyle="bold"
-        android:paddingTop="40dp"
-        android:layout_marginStart="16dp"/>
+        android:textColor="@android:color/white"
+        android:paddingTop="20dp"
+        android:layout_gravity="start"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="16dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recommendation event  for you!"
-        android:paddingBottom="30sp"
-        android:layout_marginStart="16dp"
-        android:textColor="#908D8D"/>
+        android:text="Recommendation event just for you! 🎭"
+        android:textSize="16sp"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="start"
+        android:fontFamily="sans-serif"/>
 
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        android:background="@android:color/white"
+        android:padding="8dp"
+        android:layout_marginBottom="12dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    </androidx.cardview.widget.CardView>
+
     <ProgressBar
         android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
-</FrameLayout>
-
-
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_marginTop="16dp"/>
 
 </LinearLayout>

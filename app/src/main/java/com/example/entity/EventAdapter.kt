@@ -1,4 +1,4 @@
-package com.example.Entity
+package com.example.entity
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,7 +12,6 @@ class EventAdapter(private val onItemClick: (EventEntity)-> Unit) :
     ListAdapter<EventEntity, EventAdapter.EventViewHolder>(EventDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
-        // Menambahkan view binding untuk item layout
         val binding = ItemEventBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return EventViewHolder(binding)
     }
@@ -27,6 +26,7 @@ class EventAdapter(private val onItemClick: (EventEntity)-> Unit) :
             // Mengikat data ke tampilan menggunakan binding
             binding.eventTitle.text = event.eventName
             binding.tvSummary.text = event.summary
+
             Glide.with(binding.imgLogoEvent.context)
                 .load(event.imageLogo) // eventImage adalah URL gambar yang disimpan dalam EventEntity
                 .into(binding.imgLogoEvent) // eventImage adalah ImageView tempat gambar akan ditampilkan

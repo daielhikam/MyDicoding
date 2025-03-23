@@ -1,5 +1,6 @@
 package com.example.fragmentBottom.finished
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Html
 import android.widget.Toast
@@ -8,15 +9,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
-import com.example.Entity.EventEntity
-import com.example.Entity.EventViewModel
+import com.example.entity.EventEntity
+import com.example.entity.EventViewModel
 import com.example.mydicoding.R
 import com.example.mydicoding.databinding.ActivityFinishedDetailBinding
 
 class DetailFinished : AppCompatActivity() {
 
     private lateinit var binding: ActivityFinishedDetailBinding
-    private val eventViewModel: EventViewModel by viewModels()  // Menggunakan ViewModel untuk Activity
+    private val eventViewModel: EventViewModel by viewModels()
 
     private var isFavorite: Boolean = false
     private lateinit var eventName: String
@@ -29,28 +30,28 @@ class DetailFinished : AppCompatActivity() {
     private lateinit var beginTime: String
     private lateinit var endTime: String
     private lateinit var mediaCover: String
-    private lateinit var quota: String
+    private  var register: Int = 0
+    private var quota: Int = 0
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFinishedDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Ambil data dari Intent
         description = intent.getStringExtra("EVENT_DESC")?:""
+        register = intent.getIntExtra("EVENT_REGIST", 0)
+        quota = intent.getIntExtra("EVENT_QUOTA", 0)
         eventName = intent.getStringExtra("EVENT_NAME") ?: ""
         eventImage = intent.getStringExtra("EVENT_IMAGE") ?: ""
         category = intent.getStringExtra("EVENT_CATEGORY")?: ""
-        ownerName = intent.getStringExtra("EVENT_OWNER_NAME")?: ""
+        ownerName = intent.getStringExtra("EVENT_OWNER")?: ""
         city = intent.getStringExtra("EVENT_CITY")?: ""
         summary = intent.getStringExtra("EVENT_SUMMARY")?: ""
         beginTime = intent.getStringExtra("EVENT_BEGIN_TIME")?: ""
         endTime = intent.getStringExtra("EVENT_END_TIME")?: ""
         mediaCover = intent.getStringExtra("EVENT_MEDIA_COVER")?: ""
 
-
-
-        // Periksa status favorit dari database
         eventViewModel.getEventByName(eventName).observe(this, Observer { event ->
             if (event != null) {
                 isFavorite = event.isFavorite
@@ -58,11 +59,8 @@ class DetailFinished : AppCompatActivity() {
             }
         })
 
-        // Ambil status favorit dari Intent
         isFavorite = intent.getBooleanExtra("EVENT_IS_FAVORITE", false)
 
-
-        // Menampilkan data di UI
         binding.eventDescription.text = Html.fromHtml(description, Html.FROM_HTML_MODE_LEGACY)
         binding.tvName.text = eventName
         binding.tvCategory.text = category
@@ -70,12 +68,14 @@ class DetailFinished : AppCompatActivity() {
         binding.tvCityLokasi.text = city
         binding.tvDateTime.text = "$beginTime - $endTime"
         binding.tvSummary.text = summary
+        binding.tvQuota.text = "Quota : $quota"
+        binding.tvRegistrants.text = "Registrans : $register"
+
+
         Glide.with(this).load(eventImage).into(binding.eventImage)
 
-        // Set ikon bookmark berdasarkan status favorit
         setBookmarkIcon()
 
-        // Tangani klik pada ikon bookmark
         binding.ivBookmark.setOnClickListener {
             isFavorite = !isFavorite
             setBookmarkIcon()
@@ -92,10 +92,10 @@ class DetailFinished : AppCompatActivity() {
                 beginTime = beginTime,
                 endTime = endTime,
                 summary = summary,
-                isFinished = true  // Menjadikan event sebagai finished
+                quota = quota,
+                regist = register,
+                isFinished = true
             )
-
-            // Tambahkan atau hapus event dari favorit menggunakan ViewModel
             if (isFavorite) {
                 eventViewModel.addToFavorites(eventEntity)
                 Toast.makeText(this, "Added to favorites", Toast.LENGTH_SHORT).show()
@@ -106,7 +106,6 @@ class DetailFinished : AppCompatActivity() {
         }
     }
 
-    // Fungsi untuk mengubah ikon bookmark
     private fun setBookmarkIcon() {
         if (isFavorite) {
             // Menggunakan ContextCompat untuk mengambil drawable secara aman

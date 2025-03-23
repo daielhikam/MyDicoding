@@ -3,75 +3,99 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="4dp">
+    android:layout_margin="6dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="3dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="12dp">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
 
         <ImageView
             android:id="@+id/imgLogoEvent"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:scaleType="centerCrop" />
-
-        <TextView
-            android:id="@+id/eventTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textStyle="bold"
-            android:text="DevCoach 187"
-            android:textAppearance="?attr/textAppearanceSubtitle1" />
-
-        <TextView
-            android:id="@+id/tvCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"/>
-        <TextView
-            android:id="@+id/tvSummary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLines="3"
-            android:ellipsize="end"
-            android:textAppearance="?attr/textAppearanceBody2"/>
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:background="@drawable/bg_category"
+            android:clipToOutline="true"
+            android:layout_marginEnd="12dp"
+            android:layout_gravity="center"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_weight="1">
 
             <TextView
-                android:id="@+id/tvOwnerName"
-                android:layout_width="wrap_content"
+                android:id="@+id/eventTitle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dicoding Event"
-                android:textAppearance="?attr/textAppearanceBody2"
+                android:textAppearance="?attr/textAppearanceHeadline6"
                 android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_marginTop="8dp"/>
+                android:text="DevCoach 187"
+                android:textSize="14sp"
+                android:maxLines="3"
+                android:ellipsize="marquee" />
 
             <TextView
-                android:id="@+id/tvCity"
-                android:layout_width="wrap_content"
+                android:id="@+id/tvCategory"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Online"
-                android:textAppearance="?attr/textAppearanceBody2"
-                />
-        </LinearLayout>
+                android:textSize="12sp"
+                android:layout_marginTop="2dp"
+                android:maxLines="1"
+                android:ellipsize="marquee"/>
 
-        <TextView
-            android:id="@+id/tvDateTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceCaption"
-            android:layout_marginTop="4dp" />
+            <TextView
+                android:id="@+id/tvSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/tvOwnerName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Dicoding Event"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:ellipsize="marquee"/>
+
+                <TextView
+                    android:id="@+id/tvCity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Online"
+                    android:textSize="12sp"
+                    android:maxLines="1"
+                    android:ellipsize="marquee"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvDateTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:layout_marginTop="2dp"
+                android:maxLines="1"
+                android:ellipsize="marquee"/>
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

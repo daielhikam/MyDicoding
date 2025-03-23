@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.data.response.ListItemsFinished
-import com.example.fragmentBottom.upcomming.DetailUpcoming
 import com.example.mydicoding.R
 
 class AdapterFinished(private val onBookmarkClick: (ListItemsFinished) -> Unit) :
@@ -25,7 +24,6 @@ class AdapterFinished(private val onBookmarkClick: (ListItemsFinished) -> Unit) 
         val tvCity: TextView = view.findViewById(R.id.tvCity)
         val tvEventSummary: TextView = view.findViewById(R.id.tvSummary)
         val tvDateTime: TextView = view.findViewById(R.id.tvDateTime)
-        // Hapus ivBookmark dari sini
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FinishedViewHolder {
@@ -37,7 +35,6 @@ class AdapterFinished(private val onBookmarkClick: (ListItemsFinished) -> Unit) 
     override fun onBindViewHolder(holder: FinishedViewHolder, position: Int) {
         val event = getItem(position)
 
-        // Set data ke TextView dan ImageView
         holder.eventTitle.text = event.name
         holder.tvCategory.text = event.category
         holder.tvOwnerName.text = event.ownerName
@@ -50,8 +47,6 @@ class AdapterFinished(private val onBookmarkClick: (ListItemsFinished) -> Unit) 
             .load(event.mediaCover)
             .into(holder.eventImage)
 
-        // Handle item click untuk membuka Detail
-        // Menambahkan klik listener untuk berpindah ke DetailUpcomingActivity
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, DetailFinished::class.java).apply {

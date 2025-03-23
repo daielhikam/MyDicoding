@@ -1,4 +1,4 @@
-package com.example.Entity
+package com.example.entity
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -16,7 +16,7 @@ interface EventDao {
     suspend fun update(event: EventEntity)
 
     @Query("SELECT * FROM favorite_events")
-    fun getAllFavorites(): LiveData<List<EventEntity>>  // Menggunakan LiveData
+    fun getAllFavorites(): LiveData<List<EventEntity>>
 
     @Query("SELECT * FROM favorite_events WHERE eventName = :eventName LIMIT 1")
     fun getEventByName(eventName: String): LiveData<EventEntity?>

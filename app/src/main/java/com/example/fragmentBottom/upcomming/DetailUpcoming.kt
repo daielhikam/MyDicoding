@@ -17,7 +17,6 @@ class DetailUpcoming : AppCompatActivity() {
         binding = ActivityUpcomingDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Ambil data dari intent
         val description = intent.getStringExtra("EVENT_DESC")
         val regist = intent.getIntExtra("EVENT_REGIST",0)
         val quota = intent.getIntExtra("EVENT_QUOTA",0)
@@ -31,7 +30,6 @@ class DetailUpcoming : AppCompatActivity() {
         val eventEndTime = intent.getStringExtra("EVENT_END_TIME")
         val eventImage = intent.getStringExtra("EVENT_IMAGE")
 
-        // Set data ke tampilan
         binding.eventDescription.text = Html.fromHtml(description, Html.FROM_HTML_MODE_LEGACY) // Menampilkan HTML dengan benar
         binding.tvName.text = eventName
         binding.tvRegistrants.text = "Registrans : $regist"
@@ -46,8 +44,6 @@ class DetailUpcoming : AppCompatActivity() {
             .load(eventImage)
             .into(binding.eventImage)
 
-
-        //membuka link
         binding.btnEventLink.setOnClickListener {
              val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
              startActivity(browserIntent)

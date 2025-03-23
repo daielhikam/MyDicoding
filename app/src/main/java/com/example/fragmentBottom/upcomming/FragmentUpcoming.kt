@@ -13,13 +13,13 @@ import com.example.mydicoding.databinding.FragmentUpcomingBinding
 
 class FragmentUpcoming : Fragment() {
 
+
     private var _binding: FragmentUpcomingBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: ViewModelUpcoming by viewModels()
     private lateinit var adapter: AdapterUpcoming
-    private var allEvents: List<ListItemsUpcoming> = emptyList() // Simpan semua data
-
+    private var allEvents: List<ListItemsUpcoming> = emptyList()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,30 +31,33 @@ class FragmentUpcoming : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.scheduleEventNotification(requireContext())
+
         adapter = AdapterUpcoming()
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = this@FragmentUpcoming.adapter
         }
 
-        // Memanggil fungsi untuk mengambil data events
-        viewModel.getEvents()
+        if (viewModel.events.value.isNullOrEmpty()) {
+            viewModel.getEvents() // Hanya panggil jika data masih kosong
+        } else {
+            binding.progressBar.visibility = View.GONE
+            adapter.submitList(viewModel.events.value) // Langsung pakai data lama
+        }
 
-        // Observasi perubahan data events
         viewModel.events.observe(viewLifecycleOwner) { events ->
             binding.progressBar.visibility = View.GONE
-            allEvents = events
             adapter.submitList(events)
         }
 
-        // Observasi perubahan error message
         viewModel.error.observe(viewLifecycleOwner) { errorMessage ->
             Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
         }
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 }
+

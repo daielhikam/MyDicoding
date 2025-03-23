@@ -33,6 +33,7 @@ class FinishedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         // Menginisialisasi adapter dengan callback onBookmarkClick
         adapter = AdapterFinished { event ->
             // Mengubah status favorit di ViewModel saat bookmark diklik

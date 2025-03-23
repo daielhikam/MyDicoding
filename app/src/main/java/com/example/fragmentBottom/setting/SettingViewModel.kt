@@ -6,14 +6,14 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val pref: SettingPreferences): ViewModel() {
-    fun getThemeSettings(): LiveData<Boolean> {
-        return pref.getThemeSetting().asLiveData()
-    }
 
-    fun saveThemeSetting(isDarkModeActive: Boolean){
+class SettingViewModel(private val settingPreferences: SettingPreferences) : ViewModel() {
+
+    fun getThemeSettings() = settingPreferences.getThemeSetting().asLiveData()
+
+    fun saveThemeSetting(isDarkMode: Boolean) {
         viewModelScope.launch {
-            pref.saveThemeSetting(isDarkModeActive)
+            settingPreferences.saveThemeSetting(isDarkMode)
         }
     }
 }

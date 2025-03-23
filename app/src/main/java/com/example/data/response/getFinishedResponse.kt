@@ -2,7 +2,7 @@ package com.example.data.response
 
 import com.google.gson.annotations.SerializedName
 
-data class getFinishedResponse(
+data class GetFinishedResponse(
 
 	@field:SerializedName("listEvents")
 	val listEvents: List< ListItemsFinished>,
@@ -13,8 +13,6 @@ data class getFinishedResponse(
 	@field:SerializedName("message")
 	val message: String
 )
-
-
 data class ListItemsFinished(
 
 	@field:SerializedName("ownerId")

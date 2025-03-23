@@ -1,4 +1,4 @@
-package com.example.Entity
+package com.example.entity
 
 
 import androidx.room.Entity
@@ -18,4 +18,6 @@ data class EventEntity(
     val imageLogo: String,
     val isFavorite: Boolean,
     val isFinished: Boolean,
-)
+    val quota: Int,
+    val regist: Int,
+    )
